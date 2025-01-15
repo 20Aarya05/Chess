@@ -1,0 +1,62 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* Game Container */
+.game_cont {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    gap: 0; /* No gaps between rows */
+    width: 404px; /* Includes the border width */
+    height: 404px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid black; /* Border around the entire chessboard */
+}
+
+/* Row Container */
+.main_parent_cont {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+/* Chess Buttons (Squares) */
+.piece_btn {
+    width: 100%;
+    height: 100%;
+    border: 2px solid black; /* Border around each square */
+    outline: none;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+/* Alternate Colors for Squares */
+.piece_btn:nth-child(odd) {
+    background-color: #769656;
+}
+.piece_btn:nth-child(even) {
+    background-color: #eeeed2;
+}
+
+/* Fix alternating colors for rows */
+.main_parent_cont:nth-child(even) .piece_btn:nth-child(odd),
+.main_parent_cont:nth-child(odd) .piece_btn:nth-child(even) {
+    background-color: #769656;
+}
+
+.main_parent_cont:nth-child(even) .piece_btn:nth-child(even),
+.main_parent_cont:nth-child(odd) .piece_btn:nth-child(odd) {
+    background-color: #eeeed2;
+}
+
+/* Highlight Effect on Hover */
+.piece_btn:hover {
+    background-color: #d1d1d1;
+}
