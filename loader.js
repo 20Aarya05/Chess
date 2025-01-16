@@ -37,5 +37,5 @@ pieceButtons.forEach(element => {
     } else if (element.id === "btn12" || element.id==="btn17") {
         btntext.className = blackpcs[1]; 
     }
-    pieceButtons.appendChild(btntext);   
+    element.appendChild(btntext);   
 });
