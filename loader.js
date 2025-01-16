@@ -31,7 +31,6 @@ const whitepcs = ["fa-regular fa-chess-rook", "fa-regular fa-chess-knight", "fa-
 // Add event listeners to buttons
 const pieceButtons = document.querySelectorAll('.piece_btn');
 pieceButtons.forEach(element => {
-    element.addEventListener('click', function() {
         let btntext = document.createElement('i');
         
         // Check ID and assign a piece
@@ -45,5 +44,4 @@ pieceButtons.forEach(element => {
         if (!element.querySelector('i')) {
             element.appendChild(btntext);
         }
-    });
 });
