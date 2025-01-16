@@ -32,16 +32,10 @@ const whitepcs = ["fa-regular fa-chess-rook", "fa-regular fa-chess-knight", "fa-
 const pieceButtons = document.querySelectorAll('.piece_btn');
 pieceButtons.forEach(element => {
         let btntext = document.createElement('i');
+    if (element.id === "btn11" || element.id==="btn18") {
+            btntext.className = blackpcs[0];
+    } else if (element.id === "btn12" || element.id==="btn17") {
+        btntext.className = blackpcs[1]; 
+    }
         
-        // Check ID and assign a piece
-        if (element.id === "btn11") {
-            btntext.className = blackpcs[0]; // Black rook
-        } else if (element.id === "btn12") {
-            btntext.className = blackpcs[1]; // Black knight
-        }
-        
-        // Prevent duplicate icons
-        if (!element.querySelector('i')) {
-            element.appendChild(btntext);
-        }
 });
