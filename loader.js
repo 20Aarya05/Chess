@@ -54,7 +54,7 @@ pieceButtons.forEach(element => {
         btntext.className=whitepcs[3];
     } else if (element.id==="btn85"){
         btntext.className=whitepcs[4];
-    } else if ( element.id==="btn21" || element.id==="btn72" || element.id==="btn73" || element.id==="btn74" || element.id==="btn75" || element.id==="btn76" || element.id==="btn77" || element.id==="btn78" ){
+    } else if ( element.id==="btn71" || element.id==="btn72" || element.id==="btn73" || element.id==="btn74" || element.id==="btn75" || element.id==="btn76" || element.id==="btn77" || element.id==="btn78" ){
         btntext.className=whitepcs[5];
     }
     element.appendChild(btntext);   
