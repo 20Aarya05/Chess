@@ -19,7 +19,6 @@ body {
     height: 404px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border: 2px solid black; /* Border around the entire chessboard */
-    font-size: 2rem;
 }
 
 /* Row Container */
@@ -36,6 +35,10 @@ body {
     outline: none;
     background-color: #fff;
     transition: background-color 0.3s ease;
+}
+
+.piece_btn{
+    font-size:2rem;
 }
 
 /* Alternate Colors for Squares */
