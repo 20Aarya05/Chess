@@ -36,7 +36,7 @@ pieceButtons.forEach(element => {
             btntext.className = blackpcs[0];
     } else if (element.id === "btn12" || element.id==="btn17") {
         btntext.className = blackpcs[1]; 
-    } else if (element.id === "btn13" || element.id==="btn16) {
+    } else if (element.id === "btn13" || element.id==="btn16") {
         btntext.className = blackpcs[2];
     } else if (element.id==="btn14"){
         btntext.className=blackpcs[3];
