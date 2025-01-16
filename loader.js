@@ -23,39 +23,37 @@ main_parent_cont.forEach(element => {
 });
 
 // Chess piece icons
-const blackpcs = ["fa-solid fa-chess-rook", "fa-solid fa-chess-knight", "fa-solid fa-chess-bishop", 
-                  "fa-solid fa-chess-queen", "fa-solid fa-chess-king", "fa-solid fa-chess-pawn"];
-const whitepcs = ["fa-regular fa-chess-rook", "fa-regular fa-chess-knight", "fa-regular fa-chess-bishop", 
-                  "fa-regular fa-chess-queen", "fa-regular fa-chess-king", "fa-regular fa-chess-pawn"];
+const blackpcs = [`<i class="fa-solid fa-chess-rook"></i>`, `<i class="fa-solid fa-chess-knight"></i>`, `<i class="fa-solid fa-chess-bishop"></i>`, 
+                  `<i class="fa-solid fa-chess-queen"></i>`, `<i class="fa-solid fa-chess-king"></i>`, `<i class="fa-solid fa-chess-pawn"></i>`];
+const whitepcs = [`<i class="fa-regular fa-chess-rook"></i>`, `<i class="fa-regular fa-chess-knight"></i>`, `<i class="fa-regular fa-chess-bishop"></i>`, 
+                  `<i class="fa-regular fa-chess-queen"></i>`, `<i class="fa-regular fa-chess-king"></i>`, `<i class="fa-regular fa-chess-pawn"></i>`];
 
 // Add event listeners to buttons
 const pieceButtons = document.querySelectorAll('.piece_btn');
 pieceButtons.forEach(element => {
-        let btntext = document.createElement('i');
     if (element.id === "btn11" || element.id==="btn18") {
-            btntext.className = blackpcs[0];
-    } else if (element.id === "btn12" || element.id==="btn17") {
-        btntext.className = blackpcs[1]; 
-    } else if (element.id === "btn13" || element.id==="btn16") {
-        btntext.className = blackpcs[2];
+        element.innerHTML = blackpcs[0];
+    } else if (element.id === "btn12") {
+        element.innerHTML = blackpcs[1]; 
+    } else if (element.id === "btn13") {
+        element.innerHTML = blackpcs[2];
     } else if (element.id==="btn14"){
-        btntext.className=blackpcs[3];
+        element.innerHTML=blackpcs[3];
     } else if (element.id==="btn15"){
-        btntext.className=blackpcs[4];
-    } else if ( element.id==="btn21" || element.id==="btn22" || element.id==="btn23" || element.id==="btn24" || element.id==="btn25" || element.id==="btn26" || element.id==="btn27" || element.id==="btn28" ){
-        btntext.className=blackpcs[5];
+        element.innerHTML=blackpcs[4];
+    } else if ( element.id==="btn41" || element.id==="btn22" || element.id==="btn23" || element.id==="btn24" || element.id==="btn25" || element.id==="btn26" || element.id==="btn27" || element.id==="btn28" ){
+        element.innerHTML=blackpcs[5];
     } else if (element.id==="btn81" || element.id==="btn88") {
-            btntext.className = whitepcs[0];
-    } else if (element.id === "btn82" || element.id==="btn87") {
-        btntext.className = whitepcs[1]; 
-    } else if (element.id === "btn83" || element.id==="btn86") {
-        btntext.className = whitepcs[2];
+        element.innerHTML = whitepcs[0];
+    } else if (element.id==="btn87") {
+        element.innerHTML = whitepcs[1]; 
+    } else if (element.id==="btn86") {
+        element.innerHTML = whitepcs[2];
     } else if (element.id==="btn84"){
-        btntext.className=whitepcs[3];
+        element.innerHTML=whitepcs[3];
     } else if (element.id==="btn85"){
-        btntext.className=whitepcs[4];
-    } else if ( element.id==="btn71" || element.id==="btn72" || element.id==="btn73" || element.id==="btn74" || element.id==="btn75" || element.id==="btn76" || element.id==="btn77" || element.id==="btn78" ){
-        btntext.className=whitepcs[5];
-    }
-    element.appendChild(btntext);   
+        element.innerHTML=whitepcs[4];
+    } else if ( element.id==="btn72" || element.id==="btn73" || element.id==="btn74" || element.id==="btn75" || element.id==="btn76" || element.id==="btn77" ){
+        element.innerHTML=whitepcs[5];
+    } 
 });
