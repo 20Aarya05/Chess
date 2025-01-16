@@ -19,7 +19,7 @@ body {
     height: 404px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border: 2px solid black; /* Border around the entire chessboard */
-    font-size: 1rem;
+    font-size: 2rem;
 }
 
 /* Row Container */
