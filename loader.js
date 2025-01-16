@@ -26,9 +26,13 @@ const piece_btn = document.querySelectorAll('.piece_btn');
 piece_btn.forEach(element => {
     element.addEventListener('click', function() {
         if (piece_btn.id==btn11){
-            element.innerHTML = `<i class="fa-solid fa-chess-rook"></i>`;
+         btntext=document.createElememt('i');
+            btntext.classList.add(blackpcs[0]);
+            element.appendChild(btntext);
         }else if (piece_btn.id==btn12){
-            element.innerHTML = `<i class="fa-solid fa-chess-knight"></i>`;
+            let btntext=document.createElememt('i');
+            btntext.classList.add(blackpcs[1]);
+            element.appendChild(btntext);
         }
     });
 });
