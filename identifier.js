@@ -27,32 +27,28 @@ export function removehighlight(){
 }
 
 export function getrookpath(element, chance) {
-    let ipos = element.id; // Get the rook's current position (e.g., "btn45")
+    let ipos = element.id; 
     const values = ipos.slice(3).split('');
-    const x = parseInt(values[0], 10); // X-coordinate
-    const y = parseInt(values[1], 10); // Y-coordinate
+    const x = parseInt(values[0], 10);
+    const y = parseInt(values[1], 10);
 
-    let listbtnpx = []; // Rightward (positive X-direction)
-    let listbtnnx = []; // Leftward (negative X-direction)
-    let listbtnpy = []; // Upward (positive Y-direction)
-    let listbtnny = []; // Downward (negative Y-direction)
+    let listbtnpx = []; 
+    let listbtnnx = []; 
+    let listbtnpy = [];
+    let listbtnny = []; 
 
-    // Horizontal movement (right)
     for (let i = y + 1; i <= 8; i++) {
         listbtnpx.push(`btn${x}${i}`);
     }
 
-    // Horizontal movement (left)
     for (let i = y - 1; i >= 1; i--) {
         listbtnnx.push(`btn${x}${i}`);
     }
 
-    // Vertical movement (up)
     for (let i = x - 1; i >= 1; i--) {
         listbtnpy.push(`btn${i}${y}`);
     }
 
-    // Vertical movement (down)
     for (let i = x + 1; i <= 8; i++) {
         listbtnny.push(`btn${i}${y}`);
     }
@@ -63,16 +59,218 @@ export function getrookpath(element, chance) {
     highlightPath(chance, listbtnny);
 }
 
+export function getknightpath(element, chance) {
+    let ipos = element.id; 
+    const values = ipos.slice(3).split('');
+    const x = parseInt(values[0], 10);
+    const y = parseInt(values[1], 10);
+
+    if(x+2<=8 && y+1<=8){
+        highlightPath(chance, [`btn${x+2}${y+1}`]);
+    }
+    if(x+2<=8 && y-1>=1){
+        highlightPath(chance, [`btn${x+2}${y-1}`]);
+    }
+    if(x-2>=1 && y+1<=8){
+        highlightPath(chance, [`btn${x-2}${y+1}`]);
+    }
+    if(x-2>=1 && y-1>=1){
+        highlightPath(chance, [`btn${x-2}${y-1}`]);
+    }
+    if(x+1<=8 && y+2<=8){
+        highlightPath(chance, [`btn${x+1}${y+2}`]);
+    }
+    if(x+1<=8 && y-2>=1){
+        highlightPath(chance, [`btn${x+1}${y-2}`]);
+    }
+    if(x-1>=1 && y+2<=8){
+        highlightPath(chance, [`btn${x-1}${y+2}`]);
+    }
+    if(x-1>=1 && y-2>=1){
+        highlightPath(chance, [`btn${x-1}${y-2}`]);
+    }
+}
+
+export function getbishoppath(element, chance) {
+    let ipos = element.id; 
+    const values = ipos.slice(3).split('');
+    const x = parseInt(values[0], 10);
+    const y = parseInt(values[1], 10);
+    const c=x,d=y;
+    let listbtnpxpy = [];
+    let a=c,b=d;
+    while(a<=8 && b<=8){
+        a++;
+        b++;
+        listbtnpxpy.push(`btn${a}${b}`);
+    }
+    highlightPath(chance, listbtnpxpy);
+    let listbtnnxpy = [];
+    a=c,b=d;
+    while(a<=8 && b>=1){
+        a++;
+        b--;
+        listbtnnxpy.push(`btn${a}${b}`);
+    }
+    highlightPath(chance, listbtnnxpy);
+    let listbtnnxny = [];
+    a=c,b=d;
+    while(a>=1 && b>=1){
+        a--;
+        b--;
+        listbtnnxny.push(`btn${a}${b}`);
+    }
+    highlightPath(chance, listbtnnxny);
+    let listbtnpxny = [];
+    a=c,b=d;
+    while(a>=1 && b<=8){
+        a--;
+        b++;
+        listbtnpxny.push(`btn${a}${b}`);
+    }
+    highlightPath(chance, listbtnpxny);
+}
+
+export function getqueenpath(element, chance) {
+    let ipos = element.id; 
+    const values = ipos.slice(3).split('');
+    const x = parseInt(values[0], 10);
+    const y = parseInt(values[1], 10);
+
+    let listbtnpx = []; 
+    let listbtnnx = []; 
+    let listbtnpy = [];
+    let listbtnny = []; 
+
+    for (let i = y + 1; i <= 8; i++) {
+        listbtnpx.push(`btn${x}${i}`);
+    }
+
+    for (let i = y - 1; i >= 1; i--) {
+        listbtnnx.push(`btn${x}${i}`);
+    }
+
+    for (let i = x - 1; i >= 1; i--) {
+        listbtnpy.push(`btn${i}${y}`);
+    }
+
+    for (let i = x + 1; i <= 8; i++) {
+        listbtnny.push(`btn${i}${y}`);
+    }
+
+    highlightPath(chance, listbtnpx);
+    highlightPath(chance, listbtnnx);
+    highlightPath(chance, listbtnpy);
+    highlightPath(chance, listbtnny);
+
+    const c=x,d=y;
+    let listbtnpxpy = [];
+    let a=c,b=d;
+    while(a<=8 && b<=8){
+        a++;
+        b++;
+        listbtnpxpy.push(`btn${a}${b}`);
+    }
+    highlightPath(chance, listbtnpxpy);
+    let listbtnnxpy = [];
+    a=c,b=d;
+    while(a<=8 && b>=1){
+        a++;
+        b--;
+        listbtnnxpy.push(`btn${a}${b}`);
+    }
+    highlightPath(chance, listbtnnxpy);
+    let listbtnnxny = [];
+    a=c,b=d;
+    while(a>=1 && b>=1){
+        a--;
+        b--;
+        listbtnnxny.push(`btn${a}${b}`);
+    }
+    highlightPath(chance, listbtnnxny);
+    let listbtnpxny = [];
+    a=c,b=d;
+    while(a>=1 && b<=8){
+        a--;
+        b++;
+        listbtnpxny.push(`btn${a}${b}`);
+    }
+    highlightPath(chance, listbtnpxny);
+}
+
+export function getkingpath(element, chance) {
+    let ipos = element.id; 
+    const values = ipos.slice(3).split('');
+    const x = parseInt(values[0], 10);
+    const y = parseInt(values[1], 10);
+    highlightPath(chance, [`btn${x}${y+1}`]);
+    highlightPath(chance, [`btn${x}${y-1}`]);
+    highlightPath(chance, [`btn${x+1}${y}`]);
+    highlightPath(chance, [`btn${x-1}${y}`]);
+    highlightPath(chance, [`btn${x+1}${y+1}`]);
+    highlightPath(chance, [`btn${x+1}${y-1}`]);
+    highlightPath(chance, [`btn${x-1}${y+1}`]);
+    highlightPath(chance, [`btn${x-1}${y-1}`]);
+}
+
+export function getpawnpath(element, chance) {
+    const ipos = element.id; 
+    const values = ipos.slice(3).split('');
+    const x = parseInt(values[0], 10); 
+    const y = parseInt(values[1], 10);
+
+    const iofelement = element.querySelector('i');
+    if (!iofelement) return; 
+
+
+    let forwardOne = null;
+    let forwardTwo = null;
+
+    if (iofelement.classList.contains("fa-solid")) {
+        forwardOne = document.getElementById(`btn${x + 1}${y}`);
+        forwardTwo = document.getElementById(`btn${x + 2}${y}`);
+    } else if (iofelement.classList.contains("fa-regular")) {
+        forwardOne = document.getElementById(`btn${x - 1}${y}`);
+        forwardTwo = document.getElementById(`btn${x - 2}${y}`);
+    }
+
+    if (forwardOne && !forwardOne.querySelector('i')) {
+        highlightPath(chance, [`btn${forwardOne.id.slice(3)}`]); 
+        if (!iofelement.classList.contains("firstmovedone") && forwardTwo && !forwardTwo.querySelector('i')) {
+            highlightPath(chance, [`btn${forwardTwo.id.slice(3)}`]); 
+        }
+    }
+
+    iofelement.classList.add("firstmovedone");
+
+    const diagonalLeft = `btn${x + (chance === "white" ? -1 : 1)}${y - 1}`;
+    const diagonalRight = `btn${x + (chance === "white" ? -1 : 1)}${y + 1}`;
+    const diagonalSquares = [diagonalLeft, diagonalRight];
+
+    diagonalSquares.forEach((square) => {
+        const piece = document.getElementById(square);
+        if (piece) {
+            const icon = piece.querySelector('i');
+            if (icon) {
+                if (chance === "white" && icon.classList.contains("fa-solid")) {
+                    piece.style.backgroundColor = "red";
+                } else if (chance === "black" && icon.classList.contains("fa-regular")) {
+                    piece.style.backgroundColor = "red";
+                }
+            }
+        }
+    });
+}
+
 
 
 function highlightPath(chance, listboxes) {
     for (let i = 0; i < listboxes.length; i++) {
-        const piece = document.getElementById(listboxes[i]); // Directly get the element by ID
+        const piece = document.getElementById(listboxes[i]);
         
         if (piece) {
-            const icon = piece.querySelector('i'); // Get the piece icon inside the box
+            const icon = piece.querySelector('i');
             if (icon) {
-                // Check the piece's color and highlight red if it's an opponent
                 if (chance === "white" && icon.classList.contains("fa-solid")) {
                     piece.style.backgroundColor = "red";
                 } else if (chance === "black" && icon.classList.contains("fa-regular")) {
@@ -80,7 +278,6 @@ function highlightPath(chance, listboxes) {
                 }
                 break;
             } else {
-                // Highlight yellow for empty squares
                 piece.style.backgroundColor = "yellow";
             }
         }
@@ -92,9 +289,7 @@ export function canmove(element,lastclickedpiece){
     
     if(element.style.backgroundColor===""){
         return false;
-    }
-    if(element.style.backgroundColor==="yellow"){
-        let itext= document.createElement("i");
+    }else if(element.style.backgroundColor==="red" || element.style.backgroundColor==="yellow"){
         return true;
     }
 }
