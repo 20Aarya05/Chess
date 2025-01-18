@@ -66,8 +66,8 @@ body {
 }
 
 
-.deadpcs{
-    background-color: #ff0000;
+.blackdeadpcs{
+    background-color: gray;
     height: 50px;
     width: 100%;
     font-size: 2rem;
@@ -76,6 +76,21 @@ body {
     justify-content: center;
     position: absolute;
     top: 0;
+    margin: 0;
+    padding: 0;
+    border: 2px solid black;
+}
+
+.whitedeadpcs{
+    background-color: grey;
+    height: 50px;
+    width: 100%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
     margin: 0;
     padding: 0;
     border: 2px solid black;

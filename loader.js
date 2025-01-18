@@ -24,6 +24,8 @@ const blackpcs = [`<i class="fa-solid fa-chess-rook"></i>`, `<i class="fa-solid 
                   `<i class="fa-solid fa-chess-queen"></i>`, `<i class="fa-solid fa-chess-king"></i>`, `<i class="fa-solid fa-chess-pawn"></i>`];
 const whitepcs = [`<i class="fa-regular fa-chess-rook"></i>`, `<i class="fa-regular fa-chess-knight"></i>`, `<i class="fa-regular fa-chess-bishop"></i>`, 
                   `<i class="fa-regular fa-chess-queen"></i>`, `<i class="fa-regular fa-chess-king"></i>`, `<i class="fa-regular fa-chess-pawn"></i>`];
+export const blackpcsidentify = "fa-solid";
+export const whitepcsidentify = "fa-regular";
 
 const pieceButtons = document.querySelectorAll('.piece_btn');
 pieceButtons.forEach(element => {
