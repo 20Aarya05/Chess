@@ -1,4 +1,4 @@
-import { getpiece, removehighlight, getrookpath, getknightpath, getbishoppath, getqueenpath, getkingpath, getpawnpath,canmove } from "./identifier.js";
+import { getpiece, removehighlight, getrookpath, getknightpath, getbishoppath, getqueenpath, getkingpath, getpawnpath,canmove } from "./mainfunctions.js";
 
 const piece_btn = document.querySelectorAll('.piece_btn');
 let chance="white";
