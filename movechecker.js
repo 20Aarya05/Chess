@@ -12,7 +12,6 @@ export function movechecker(chance, elementid, posid){
     phtml = poselement.innerHTML;
     mainelementid = elementid;
     pieceelementid = posid;
-    console.log(ihtml);
     currelement.innerHTML = "";
     poselement.innerHTML = ihtml;
     chance = chance === "white" ? "black" : "white";
@@ -50,7 +49,6 @@ function checkPiece(iconElement, chance, pieceId) {
 
 function checkrook(chance, eachpieceid){
     const [x, y] = eachpieceid.slice(3).split('').map(Number);
-    console.log(x, y);
     let listbtnpx = [], listbtnnx = [], listbtnpy = [], listbtnny = [];
 
     for (let i = y + 1; i <= 8; i++) listbtnpx.push(`btn${x}${i}`);

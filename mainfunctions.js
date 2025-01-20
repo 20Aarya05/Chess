@@ -256,9 +256,13 @@ export function getpawnpath(element, chance) {
             const icon = piece.querySelector('i');
             if (icon) {
                 if (chance === "white" && icon.classList.contains("fa-solid")) {
-                    piece.style.backgroundColor = "red";
+                    if(movechecker(chance, element.id, square) == false){
+                        piece.style.backgroundColor = "red";
+                    }
                 } else if (chance === "black" && icon.classList.contains("fa-regular")) {
-                    piece.style.backgroundColor = "red";
+                    if(movechecker(chance, element.id, square) == false){
+                        piece.style.backgroundColor = "red";
+                    }
                 }
             }
         }
@@ -286,7 +290,6 @@ function highlightPath(chance, listboxes, element) {
                 break;
             } else {
                 if (movechecker(chance, element, listboxes[i]) == false) {
-                    console.log("ok");
                     piece.style.backgroundColor = "yellow";
                 }
                 
