@@ -52,8 +52,12 @@ piece_btn.forEach(element => {
 
 piece_btn.forEach(element => {
     element.addEventListener('click', () => {
+        console.log(lastclickedpiece);
         if(element.style.backgroundColor!==""){
             if(element.style.backgroundColor==="yellow"){
+                if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-pawn")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
+                    lastclickedpiece.querySelector('i').classList.add("firstmovedone");
+                }
                 removehighlight();
                 element.innerHTML=lastclickedpiece.innerHTML;
                 console.log(element);
@@ -65,6 +69,9 @@ piece_btn.forEach(element => {
                     }
                 })
             }else if(element.style.backgroundColor==="red"){
+                if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-pawn")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
+                    lastclickedpiece.querySelector('i').classList.add("firstmovedone");
+                }
                 if(chance==="white"){
                     let blackdeadpiece = document.querySelector('.blackdeadpcs');
                     blackdeadpiece.innerHTML += element.innerHTML;
