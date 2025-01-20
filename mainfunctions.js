@@ -1,3 +1,5 @@
+import { movechecker } from "./movechecker.js";
+
 //piece idntify
 export function getpiece(element){
     const icon = element.querySelector('i');
@@ -53,10 +55,10 @@ export function getrookpath(element, chance) {
         listbtnny.push(`btn${i}${y}`);
     }
 
-    highlightPath(chance, listbtnpx);
-    highlightPath(chance, listbtnnx);
-    highlightPath(chance, listbtnpy);
-    highlightPath(chance, listbtnny);
+    highlightPath(chance, listbtnpx, element.id);
+    highlightPath(chance, listbtnnx, element.id);
+    highlightPath(chance, listbtnpy, element.id);
+    highlightPath(chance, listbtnny, element.id);
 }
 
 export function getknightpath(element, chance) {
@@ -66,28 +68,28 @@ export function getknightpath(element, chance) {
     const y = parseInt(values[1], 10);
 
     if(x+2<=8 && y+1<=8){
-        highlightPath(chance, [`btn${x+2}${y+1}`]);
+        highlightPath(chance, [`btn${x+2}${y+1}`], element.id);
     }
     if(x+2<=8 && y-1>=1){
-        highlightPath(chance, [`btn${x+2}${y-1}`]);
+        highlightPath(chance, [`btn${x+2}${y-1}`], element.id);
     }
     if(x-2>=1 && y+1<=8){
-        highlightPath(chance, [`btn${x-2}${y+1}`]);
+        highlightPath(chance, [`btn${x-2}${y+1}`], element.id);
     }
     if(x-2>=1 && y-1>=1){
-        highlightPath(chance, [`btn${x-2}${y-1}`]);
+        highlightPath(chance, [`btn${x-2}${y-1}`], element.id);
     }
     if(x+1<=8 && y+2<=8){
-        highlightPath(chance, [`btn${x+1}${y+2}`]);
+        highlightPath(chance, [`btn${x+1}${y+2}`], element.id);
     }
     if(x+1<=8 && y-2>=1){
-        highlightPath(chance, [`btn${x+1}${y-2}`]);
+        highlightPath(chance, [`btn${x+1}${y-2}`], element.id);
     }
     if(x-1>=1 && y+2<=8){
-        highlightPath(chance, [`btn${x-1}${y+2}`]);
+        highlightPath(chance, [`btn${x-1}${y+2}`], element.id);
     }
     if(x-1>=1 && y-2>=1){
-        highlightPath(chance, [`btn${x-1}${y-2}`]);
+        highlightPath(chance, [`btn${x-1}${y-2}`], element.id);
     }
 }
 
@@ -104,7 +106,7 @@ export function getbishoppath(element, chance) {
         b++;
         listbtnpxpy.push(`btn${a}${b}`);
     }
-    highlightPath(chance, listbtnpxpy);
+    highlightPath(chance, listbtnpxpy, element.id);
     let listbtnnxpy = [];
     a=c,b=d;
     while(a<=8 && b>=1){
@@ -112,7 +114,7 @@ export function getbishoppath(element, chance) {
         b--;
         listbtnnxpy.push(`btn${a}${b}`);
     }
-    highlightPath(chance, listbtnnxpy);
+    highlightPath(chance, listbtnnxpy, element.id);
     let listbtnnxny = [];
     a=c,b=d;
     while(a>=1 && b>=1){
@@ -120,7 +122,7 @@ export function getbishoppath(element, chance) {
         b--;
         listbtnnxny.push(`btn${a}${b}`);
     }
-    highlightPath(chance, listbtnnxny);
+    highlightPath(chance, listbtnnxny, element.id);
     let listbtnpxny = [];
     a=c,b=d;
     while(a>=1 && b<=8){
@@ -128,7 +130,7 @@ export function getbishoppath(element, chance) {
         b++;
         listbtnpxny.push(`btn${a}${b}`);
     }
-    highlightPath(chance, listbtnpxny);
+    highlightPath(chance, listbtnpxny, element.id);
 }
 
 export function getqueenpath(element, chance) {
@@ -158,10 +160,10 @@ export function getqueenpath(element, chance) {
         listbtnny.push(`btn${i}${y}`);
     }
 
-    highlightPath(chance, listbtnpx);
-    highlightPath(chance, listbtnnx);
-    highlightPath(chance, listbtnpy);
-    highlightPath(chance, listbtnny);
+    highlightPath(chance, listbtnpx, element.id);
+    highlightPath(chance, listbtnnx, element.id);
+    highlightPath(chance, listbtnpy, element.id);
+    highlightPath(chance, listbtnny, element.id);
 
     const c=x,d=y;
     let listbtnpxpy = [];
@@ -171,7 +173,7 @@ export function getqueenpath(element, chance) {
         b++;
         listbtnpxpy.push(`btn${a}${b}`);
     }
-    highlightPath(chance, listbtnpxpy);
+    highlightPath(chance, listbtnpxpy, element.id);
     let listbtnnxpy = [];
     a=c,b=d;
     while(a<=8 && b>=1){
@@ -179,7 +181,7 @@ export function getqueenpath(element, chance) {
         b--;
         listbtnnxpy.push(`btn${a}${b}`);
     }
-    highlightPath(chance, listbtnnxpy);
+    highlightPath(chance, listbtnnxpy, element.id);
     let listbtnnxny = [];
     a=c,b=d;
     while(a>=1 && b>=1){
@@ -187,7 +189,7 @@ export function getqueenpath(element, chance) {
         b--;
         listbtnnxny.push(`btn${a}${b}`);
     }
-    highlightPath(chance, listbtnnxny);
+    highlightPath(chance, listbtnnxny, element.id);
     let listbtnpxny = [];
     a=c,b=d;
     while(a>=1 && b<=8){
@@ -195,7 +197,7 @@ export function getqueenpath(element, chance) {
         b++;
         listbtnpxny.push(`btn${a}${b}`);
     }
-    highlightPath(chance, listbtnpxny);
+    highlightPath(chance, listbtnpxny, element.id);
 }
 
 export function getkingpath(element, chance) {
@@ -203,17 +205,18 @@ export function getkingpath(element, chance) {
     const values = ipos.slice(3).split('');
     const x = parseInt(values[0], 10);
     const y = parseInt(values[1], 10);
-    highlightPath(chance, [`btn${x}${y+1}`]);
-    highlightPath(chance, [`btn${x}${y-1}`]);
-    highlightPath(chance, [`btn${x+1}${y}`]);
-    highlightPath(chance, [`btn${x-1}${y}`]);
-    highlightPath(chance, [`btn${x+1}${y+1}`]);
-    highlightPath(chance, [`btn${x+1}${y-1}`]);
-    highlightPath(chance, [`btn${x-1}${y+1}`]);
-    highlightPath(chance, [`btn${x-1}${y-1}`]);
+    highlightPath(chance, [`btn${x}${y+1}`], element.id);
+    highlightPath(chance, [`btn${x}${y-1}`], element.id);
+    highlightPath(chance, [`btn${x+1}${y}`], element.id);
+    highlightPath(chance, [`btn${x-1}${y}`], element.id);
+    highlightPath(chance, [`btn${x+1}${y+1}`], element.id);
+    highlightPath(chance, [`btn${x+1}${y-1}`], element.id);
+    highlightPath(chance, [`btn${x-1}${y+1}`], element.id);
+    highlightPath(chance, [`btn${x-1}${y-1}`], element.id);
 }
 
 export function getpawnpath(element, chance) {
+    
     const ipos = element.id; 
     const values = ipos.slice(3).split('');
     const x = parseInt(values[0], 10); 
@@ -235,9 +238,9 @@ export function getpawnpath(element, chance) {
     }
 
     if (forwardOne && !forwardOne.querySelector('i')) {
-        highlightPath(chance, [`btn${forwardOne.id.slice(3)}`]); 
+        highlightPath(chance, [`btn${forwardOne.id.slice(3)}`], element.id); 
         if (!iofelement.classList.contains("firstmovedone") && forwardTwo && !forwardTwo.querySelector('i')) {
-            highlightPath(chance, [`btn${forwardTwo.id.slice(3)}`]); 
+            highlightPath(chance, [`btn${forwardTwo.id.slice(3)}`], element.id); 
         }
     }
 
@@ -264,7 +267,7 @@ export function getpawnpath(element, chance) {
 
 
 
-function highlightPath(chance, listboxes) {
+function highlightPath(chance, listboxes, element) {
     for (let i = 0; i < listboxes.length; i++) {
         const piece = document.getElementById(listboxes[i]);
         
@@ -272,24 +275,22 @@ function highlightPath(chance, listboxes) {
             const icon = piece.querySelector('i');
             if (icon) {
                 if (chance === "white" && icon.classList.contains("fa-solid")) {
-                    piece.style.backgroundColor = "red";
+                    if (movechecker(chance, element, listboxes[i]) == false) {
+                        piece.style.backgroundColor = "red";
+                    }  
                 } else if (chance === "black" && icon.classList.contains("fa-regular")) {
-                    piece.style.backgroundColor = "red";
+                    if (movechecker(chance, element, listboxes[i]) == false) {
+                        piece.style.backgroundColor = "red";
+                    }  
                 }
                 break;
             } else {
-                piece.style.backgroundColor = "yellow";
+                if (movechecker(chance, element, listboxes[i]) == false) {
+                    console.log("ok");
+                    piece.style.backgroundColor = "yellow";
+                }
+                
             }
         }
-    }
-}
-
-export function canmove(element,lastclickedpiece){
-    console.log(lastclickedpiece.innerHTML);
-    
-    if(element.style.backgroundColor===""){
-        return false;
-    }else if(element.style.backgroundColor==="red" || element.style.backgroundColor==="yellow"){
-        return true;
     }
 }
