@@ -122,29 +122,10 @@ body {
     color: #ffcc00;
 }
 
-/* Reset Container */
-.reset {
-    position: fixed;
-    bottom: 15%;
-    right: 20px;
-    color: white;
-    padding: 5px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    opacity: 1; /* Always visible */
-    visibility: visible; /* Always visible */
-}
-
 /* Reset Button */
 .reset_button {
     position: fixed;
-    bottom: 10%;
+    bottom: 12%; /* Adjusted to ensure it's above the white dead pieces */
     right: 20px;
     padding: 12px 24px;
     font-size: 1.2rem;
@@ -169,10 +150,90 @@ body {
 }
 
 /* Win Text */
-.win_text {
+.white_win_text {
     font-size: 1.5rem;
     color: #000000;
     text-transform: uppercase;
     background-color: transparent; /* Ensures no background color */
     padding: 0; /* No padding */
+    position: fixed;
+    bottom: 17%; /* Adjusted bottom spacing to ensure it stays above reset button */
+    left: 50%;
+    transform: translateX(-50%); /* Centered horizontally */
+}
+
+.black_win_text {
+    font-size: 1.5rem;
+    color: #000000;
+    text-transform: uppercase;
+    background-color: transparent; /* Ensures no background color */
+    padding: 0; /* No padding */
+    position: fixed;
+    top: 17%; /* Adjusted top spacing to ensure it stays below reset button */
+    left: 50%;
+    transform: translateX(-50%); /* Centered horizontally */
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjust game container size for mobile */
+    .game_cont {
+        width: 320px; /* Smaller width for mobile */
+        height: 320px; /* Adjust height accordingly */
+    }
+
+    /* Adjust button size */
+    .reset_button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* Adjust font size for reset container */
+    .reset {
+        bottom: 8%;
+        right: 10px;
+        font-size: 1.2rem;
+    }
+
+    /* Adjust win text font size for mobile */
+    .white_win_text {
+        font-size: 1.2rem;
+        bottom: 20%; /* Ensure it stays well above the reset button */
+    }
+
+    .black_win_text {
+        font-size: 1.2rem;
+        top: 20%; /* Ensure it stays well above the reset button */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Further adjust the game container for smaller mobile devices */
+    .game_cont {
+        width: 280px;
+        height: 280px;
+    }
+
+    /* Further adjust button and reset text size */
+    .reset_button {
+        padding: 8px 16px;
+        font-size: 1rem;
+    }
+
+    .reset {
+        bottom: 5%;
+        right: 5px;
+        font-size: 1rem;
+    }
+
+    /* Adjust win text for very small screens */
+    .white_win_text {
+        font-size: 1rem;
+        bottom: 25%; /* Further adjust positioning for very small screens */
+    }
+
+    .black_win_text {
+        font-size: 1rem;
+        top: 25%; /* Further adjust positioning for very small screens */
+    }
 }

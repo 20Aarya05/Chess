@@ -93,12 +93,13 @@ piece_btn.forEach(element => {
                 if(checkmatechecker(chance)){
                     const checkmatediv = document.querySelector('.checkmate');
                     let checktext = checkmatediv.querySelector('.winner_text');
-                    const wint = document.querySelector('.win_text');
+                    const whitewint = document.querySelector('.white_win_text');
+                    const blackwint = document.querySelector('.black_win_text');
                     if(chance==="white"){
-                        wint.innerText="White wins!";
+                        whitewint.innerText="White wins!";
                         checktext.innerHTML="White wins!";
                     }else{
-                        wint.innerText="Black wins!";
+                        blackwint.innerText="Black wins!";
                         checktext.innerHTML="Black wins!";
                     }
                     checkmatediv.style.display = 'flex';
