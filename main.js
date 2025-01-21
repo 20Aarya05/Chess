@@ -61,6 +61,10 @@ piece_btn.forEach(element => {
                 if(element.style.backgroundColor==="yellow"){
                     if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-pawn")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
                         lastclickedpiece.querySelector('i').classList.add("firstmovedone");
+                    }else if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-rook")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
+                        lastclickedpiece.querySelector('i').classList.add("firstmovedone");
+                    }else if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-king")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
+                        lastclickedpiece.querySelector('i').classList.add("firstmovedone");
                     }
                     removehighlight();
                     element.innerHTML=lastclickedpiece.innerHTML;
@@ -70,8 +74,52 @@ piece_btn.forEach(element => {
                             elementi.innerHTML="";
                         }
                     })
+                    let elementih=element.querySelector('i');
+                    if(chance==="white"){
+                        if(lastclickedpiece.id=="btn85" && 
+                            elementih.classList.contains("fa-chess-king") &&
+                            element.id=="btn87" ){
+                            let moverook=document.getElementById("btn86");
+                            let currrook=document.getElementById("btn88");
+                            moverook.innerHTML=currrook.innerHTML;
+                            currrook.innerHTML="";
+                            moverook.querySelector('i').classList.add("firstmovedone");  
+                        }else if(lastclickedpiece.id=="btn85" && 
+                            elementih.classList.contains("fa-chess-king") &&
+                            element.id=="btn83" ){
+                            let moverook=document.getElementById("btn84");
+                            let currrook=document.getElementById("btn81");
+                            moverook.innerHTML=currrook.innerHTML;
+                            currrook.innerHTML="";
+                            moverook.querySelector('i').classList.add("firstmovedone");  
+                        }
+                    }else{
+                        if(lastclickedpiece.id=="btn15" && 
+                            elementih.classList.contains("fa-chess-king") &&
+                            element.id=="btn17" ){
+                            let moverook=document.getElementById("btn16");
+                            let currrook=document.getElementById("btn18");
+                            moverook.innerHTML=currrook.innerHTML;
+                            currrook.innerHTML="";
+                            moverook.querySelector('i').classList.add("firstmovedone");  
+                        }else if(lastclickedpiece.id=="btn15" && 
+                            elementih.classList.contains("fa-chess-king") &&
+                            element.id=="btn13" ){
+                            let moverook=document.getElementById("btn14");
+                            let currrook=document.getElementById("btn11");
+                            moverook.innerHTML=currrook.innerHTML;
+                            currrook.innerHTML="";
+                            moverook.querySelector('i').classList.add("firstmovedone");  
+                        }
+                    }
+                    
+                    
                 }else if(element.style.backgroundColor==="red"){
                     if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-pawn")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
+                        lastclickedpiece.querySelector('i').classList.add("firstmovedone");
+                    }else if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-rook")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
+                        lastclickedpiece.querySelector('i').classList.add("firstmovedone");
+                    }else if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-king")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
                         lastclickedpiece.querySelector('i').classList.add("firstmovedone");
                     }
                     if(chance==="white"){

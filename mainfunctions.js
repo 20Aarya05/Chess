@@ -213,7 +213,70 @@ export function getkingpath(element, chance) {
     highlightPath(chance, [`btn${x+1}${y-1}`], element.id);
     highlightPath(chance, [`btn${x-1}${y+1}`], element.id);
     highlightPath(chance, [`btn${x-1}${y-1}`], element.id);
+
+    const ele_innert = element.querySelector('i');
+    if (!ele_innert.classList.contains("firstmovedone")) {
+        
+        let peice1 = document.getElementById(`btn${x}${y+1}`);
+        let peice2 = document.getElementById(`btn${x}${y+2}`);
+        let peice3 = document.getElementById(`btn${x}${y-1}`);
+        let peice4 = document.getElementById(`btn${x}${y-2}`);
+        let peice5 = document.getElementById(`btn${x}${y-3}`);
+        
+        let rook1 = document.getElementById(`btn${x}1`);
+        let rook2 = document.getElementById(`btn${x}8`);
+        
+        let rook1i = rook1?.querySelector(`i`);
+        let rook2i = rook2?.querySelector(`i`);
+
+        if (chance === "white") {
+            if (peice1?.innerHTML === "" && peice2?.innerHTML === "") {
+
+                if (rook2i && 
+                    rook2i.classList.contains("fa-chess-rook") && 
+                    !rook2i.classList.contains("firstmovedone") &&
+                    !movechecker(chance, element.id, "btn87"))
+                {
+                    highlightPath(chance, ["btn87"], element.id);  // Kingside castling (white)
+                }
+            }
+
+            if (peice3?.innerHTML === "" && peice4?.innerHTML === "" && peice5?.innerHTML === "") {
+                if (rook1i && 
+                    rook1i.classList.contains("fa-chess-rook") && 
+                    !rook1i.classList.contains("firstmovedone") &&
+                    !movechecker(chance, element.id, "btn83"))
+                {
+                    highlightPath(chance, [`btn83`], element.id);  // Queenside castling (white)
+                }
+            }
+        }else{
+            if (peice1?.innerHTML === "" && peice2?.innerHTML === "") {
+                console.log(rook1i?.classList);
+
+                if (rook2i && 
+                    rook2i.classList.contains("fa-chess-rook") && 
+                    !rook2i.classList.contains("firstmovedone") &&
+                    !movechecker(chance, element.id, "btn17")) 
+                {
+                    highlightPath(chance, ["btn17"], element.id);  // Kingside castling (white)
+                }
+            }
+
+            if (peice3?.innerHTML === "" && peice4?.innerHTML === "" && peice5?.innerHTML === "") {
+                if (rook1i && 
+                    rook1i.classList.contains("fa-chess-rook") && 
+                    !rook1i.classList.contains("firstmovedone") &&
+                    !movechecker(chance, element.id, "btn13"))
+                {
+                    highlightPath(chance, [`btn13`], element.id);  // Queenside castling (white)
+                }
+            }
+        }
+    }
+
 }
+
 
 export function getpawnpath(element, chance) {
     
