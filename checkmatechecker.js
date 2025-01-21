@@ -6,13 +6,11 @@ import { removehighlight } from "./mainfunctions.js";
 export function checkmatechecker(chance1) {
     const piece_btn = document.querySelectorAll('.piece_btn');
     
-    // Determine opponent's turn
     let opponent = chance1 === "white" ? "black" : "white";
     let opponentPieces = opponent === "white" ? whitepcsidentify : blackpcsidentify;
     let kingPosition = null;
     let moveFound = false;
 
-    // Find the king's position
     piece_btn.forEach(element => {
         const icon = element.querySelector("i");
         if (icon && icon.classList.contains(opponentPieces) && icon.classList.contains("fa-chess-king")) {
@@ -25,7 +23,6 @@ export function checkmatechecker(chance1) {
         return false;
     }
 
-    // Check if any move is possible to protect the king
     piece_btn.forEach(element => {
         const icon = element.querySelector("i");
         if (icon && icon.classList.contains(opponentPieces)) {
@@ -52,15 +49,14 @@ export function checkmatechecker(chance1) {
                     break;
             }
 
-            // If any valid move exists (highlighted), set flag
             piece_btn.forEach(btn => {
                 if (btn.style.backgroundColor === "yellow" || btn.style.backgroundColor === "red") {
                     moveFound = true;
                 }
             });
-            removehighlight(); // Remove highlights after checking
+            removehighlight();
         }
     });
 
-    return !moveFound;  // Return true if no legal moves found (checkmate)
+    return !moveFound; 
 }
