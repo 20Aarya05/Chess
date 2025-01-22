@@ -217,7 +217,7 @@ function checkking(chance, eachpieceid){
     return false;
 }
 
-function checkpawn(chance, eachpieceid){
+function checkpawn(chance, eachpieceid) {
     const values = eachpieceid.slice(3).split('');
     const x = parseInt(values[0], 10); 
     const y = parseInt(values[1], 10);
@@ -242,26 +242,33 @@ function checkpawn(chance, eachpieceid){
         }
     }
 
+    const diagonalLeft = document.getElementById(`btn${x + (chance === "white" ? -1 : 1)}${y - 1}`);
+    const diagonalRight = document.getElementById(`btn${x + (chance === "white" ? -1 : 1)}${y + 1}`);
+    console.log(diagonalLeft, diagonalRight);
+    
+    let dli = null;
+    if (diagonalLeft && diagonalLeft.innerHTML !== "") {
+        dli = diagonalLeft.querySelector('i');
+    }
 
-    const diagonalLeft = `btn${x + (chance === "white" ? -1 : 1)}${y - 1}`;
-    const diagonalRight = `btn${x + (chance === "white" ? -1 : 1)}${y + 1}`;
-    const diagonalSquares = [diagonalLeft, diagonalRight];
+    let dri = null;
+    if (diagonalRight && diagonalRight.innerHTML !== "") {
+        dri = diagonalRight.querySelector('i');
+    }
 
-    diagonalSquares.forEach((square) => {
-        const piece = document.getElementById(square);
-        if (piece) {
-            const icon = piece.querySelector('i');
-            if (icon) {
-                if (chance === "white" && icon.classList.contains("fa-solid")) {
-                    if(icon.classList.contains("fa-chess-king")) return true;
-                } else if (chance === "black" && icon.classList.contains("fa-regular")) {
-                    if(icon.classList.contains("fa-chess-king")) return true;
-                }
-            }
-        }
-    });
+    if (dli && verifymove(chance, [`btn${diagonalLeft.id.slice(3)}`])) {
+        console.log(diagonalLeft);
+        return true;
+    }
+
+    if (dri && verifymove(chance, [`btn${diagonalRight.id.slice(3)}`])) {
+        console.log(diagonalRight);
+        return true;
+    }
+
     return false;
 }
+
 
 function verifymove(chance, listboxes) {
     for (let i = 0; i < listboxes.length; i++) {

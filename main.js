@@ -66,6 +66,57 @@ piece_btn.forEach(element => {
                     }else if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-king")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
                         lastclickedpiece.querySelector('i').classList.add("firstmovedone");
                     }
+                    if(chance==="white"){
+                        if (lastclickedpiece.querySelector('i').classList.contains("fa-chess-pawn")){
+                            if(element.id==="btn81" || element.id==="btn82" || element.id==="btn83" || element.id==="btn84" || element.id==="btn85" || element.id==="btn86" || element.id==="btn87" || element.id==="btn88"){
+                                document.querySelector('.white_promotion').style.display = 'flex';
+                                let wp=document.querySelector('.white_promotion');
+                                let wpd = document.querySelectorAll('.white_promotion button');
+                                wpd.addEventListener('click', () => {
+                                    console.log(wpd);
+                                })
+                            }
+                        }
+                    }
+                    removehighlight();
+                    element.innerHTML=lastclickedpiece.innerHTML;
+                    
+                    piece_btn.forEach(elementi => {
+                        if(elementi.id==lastclickedpiece.id){
+                            elementi.innerHTML="";
+                        }
+                    })          
+                }else if(element.style.backgroundColor==="red"){
+                    if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-pawn")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
+                        lastclickedpiece.querySelector('i').classList.add("firstmovedone");
+                    }else if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-rook")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
+                        lastclickedpiece.querySelector('i').classList.add("firstmovedone");
+                    }else if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-king")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
+                        lastclickedpiece.querySelector('i').classList.add("firstmovedone");
+                    }
+                    if(chance==="white"){
+                        let blackdeadpiece = document.querySelector('.blackdeadpcs');
+                        blackdeadpiece.innerHTML += element.innerHTML;
+                    }else{
+                        let whitedeadpiece = document.querySelector('.whitedeadpcs');
+                        whitedeadpiece.innerHTML += element.innerHTML;
+                    }
+                    removehighlight();
+                    element.innerHTML=lastclickedpiece.innerHTML;
+                    
+                    piece_btn.forEach(elementi => {
+                        if(elementi.id==lastclickedpiece.id){
+                            elementi.innerHTML="";
+                        }
+                    })
+                }else if(element.style.backgroundColor==="skyblue"){
+                    if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-pawn")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
+                        lastclickedpiece.querySelector('i').classList.add("firstmovedone");
+                    }else if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-rook")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
+                        lastclickedpiece.querySelector('i').classList.add("firstmovedone");
+                    }else if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-king")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
+                        lastclickedpiece.querySelector('i').classList.add("firstmovedone");
+                    }
                     removehighlight();
                     element.innerHTML=lastclickedpiece.innerHTML;
                     
@@ -112,32 +163,8 @@ piece_btn.forEach(element => {
                             moverook.querySelector('i').classList.add("firstmovedone");  
                         }
                     }
-                    
-                    
-                }else if(element.style.backgroundColor==="red"){
-                    if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-pawn")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
-                        lastclickedpiece.querySelector('i').classList.add("firstmovedone");
-                    }else if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-rook")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
-                        lastclickedpiece.querySelector('i').classList.add("firstmovedone");
-                    }else if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-king")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
-                        lastclickedpiece.querySelector('i').classList.add("firstmovedone");
-                    }
-                    if(chance==="white"){
-                        let blackdeadpiece = document.querySelector('.blackdeadpcs');
-                        blackdeadpiece.innerHTML += element.innerHTML;
-                    }else{
-                        let whitedeadpiece = document.querySelector('.whitedeadpcs');
-                        whitedeadpiece.innerHTML += element.innerHTML;
-                    }
-                    removehighlight();
-                    element.innerHTML=lastclickedpiece.innerHTML;
-                    
-                    piece_btn.forEach(elementi => {
-                        if(elementi.id==lastclickedpiece.id){
-                            elementi.innerHTML="";
-                        }
-                    })
                 }
+
                 if(checkmatechecker(chance)){
                     const checkmatediv = document.querySelector('.checkmate');
                     let checktext = checkmatediv.querySelector('.winner_text');
