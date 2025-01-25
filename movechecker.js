@@ -30,7 +30,7 @@ export function movechecker(chance, elementid, posid){
     return false;
 }
 
-function checkPiece(iconElement, chance, pieceId) {
+export function checkPiece(iconElement, chance, pieceId) {
     if (iconElement.classList.contains("fa-chess-rook")) {
         return checkrook(chance, pieceId);
     } else if (iconElement.classList.contains("fa-chess-knight")) {

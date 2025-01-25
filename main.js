@@ -1,6 +1,7 @@
 import { getpiece, removehighlight, getrookpath, getknightpath, getbishoppath, getqueenpath, getkingpath, getpawnpath } from "./mainfunctions.js";
 import { blackpcsidentify, whitepcsidentify } from "./loader.js";
 import { checkmatechecker } from "./checkmatechecker.js";
+import { currentlytargeted } from "./currentlytargeted.js";
 const tpw = document.querySelector('.transforcontwhite');
 const tppw = document.querySelectorAll('.transformationpcswhite');
 const tpb = document.querySelector('.transforcontblack');
@@ -68,18 +69,6 @@ piece_btn.forEach(element => {
                         lastclickedpiece.querySelector('i').classList.add("firstmovedone");
                     }else if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-king")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
                         lastclickedpiece.querySelector('i').classList.add("firstmovedone");
-                    }
-                    if(chance==="white"){
-                        if (lastclickedpiece.querySelector('i').classList.contains("fa-chess-pawn")){
-                            if(element.id==="btn81" || element.id==="btn82" || element.id==="btn83" || element.id==="btn84" || element.id==="btn85" || element.id==="btn86" || element.id==="btn87" || element.id==="btn88"){
-                                document.querySelector('.white_promotion').style.display = 'flex';
-                                let wp=document.querySelector('.white_promotion');
-                                let wpd = document.querySelectorAll('.white_promotion button');
-                                wpd.addEventListener('click', () => {
-                                    console.log(wpd);
-                                })
-                            }
-                        }
                     }
                     removehighlight();
                     element.innerHTML=lastclickedpiece.innerHTML;
@@ -161,10 +150,10 @@ piece_btn.forEach(element => {
                         lastclickedpiece.querySelector('i').classList.add("firstmovedone");
                     }
                     if(chance==="white"){
-                        let blackdeadpiece = document.querySelector('.blackdeadpcs');
+                        let blackdeadpiece = document.querySelector('.whitedeadpcs');
                         blackdeadpiece.innerHTML += element.innerHTML;
                     }else{
-                        let whitedeadpiece = document.querySelector('.whitedeadpcs');
+                        let whitedeadpiece = document.querySelector('.blackdeadpcs');
                         whitedeadpiece.innerHTML += element.innerHTML;
                     }
                     removehighlight();
@@ -306,11 +295,13 @@ piece_btn.forEach(element => {
                     }
                 }
 
-                if(checkmatechecker(chance)){
+                if(checkmatechecker(chance)&&currentlytargeted(chance)){
                     const checkmatediv = document.querySelector('.checkmate');
+                    const checkmatetext = checkmatediv.querySelector('.checkmate_text');
                     let checktext = checkmatediv.querySelector('.winner_text');
                     const whitewint = document.querySelector('.white_win_text');
                     const blackwint = document.querySelector('.black_win_text');
+                    checkmatetext.innerText="Checkmate";
                     if(chance==="white"){
                         whitewint.innerText="White wins!";
                         checktext.innerHTML="White wins!";
@@ -318,6 +309,23 @@ piece_btn.forEach(element => {
                         blackwint.innerText="Black wins!";
                         checktext.innerHTML="Black wins!";
                     }
+                    checkmatediv.style.display = 'flex';
+                    const body = document.querySelector('body');
+                    setTimeout(() => {
+                        body.addEventListener('click', () => {
+                            checkmatediv.style.display = 'none';
+                        });
+                    },2000);
+                }else if(checkmatechecker(chance)&&!currentlytargeted(chance)){
+                    const checkmatediv = document.querySelector('.checkmate');
+                    const checkmatetext = checkmatediv.querySelector('.checkmate_text');
+                    let checktext = checkmatediv.querySelector('.winner_text');
+                    const whitewint = document.querySelector('.white_win_text');
+                    const blackwint = document.querySelector('.black_win_text');
+                    checkmatetext.innerText="Stalemate";
+                    checktext.innerText="It's a draw!";
+                    whitewint.innerText="It's a draw!";
+                    blackwint.innerText="It's a draw!";
                     checkmatediv.style.display = 'flex';
                     const body = document.querySelector('body');
                     setTimeout(() => {
