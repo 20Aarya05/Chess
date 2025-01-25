@@ -1,4 +1,3 @@
-/* General Reset */
 body {
     margin: 0;
     padding: 0;
@@ -11,35 +10,31 @@ body {
     position: relative;
 }
 
-/* Game Container */
 .game_cont {
     display: grid;
     grid-template-rows: repeat(8, 1fr);
-    gap: 0; /* No gaps between rows */
-    width: 404px; /* Includes the border width */
+    gap: 0; 
+    width: 404px; 
     height: 404px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 2px solid black; /* Border around the entire chessboard */
+    border: 2px solid black; 
 }
 
-/* Row Container */
 .main_parent_cont {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
 }
 
-/* Chess Buttons (Squares) */
 .piece_btn {
     width: 100%;
     height: 100%;
-    border: 2px solid black; /* Border around each square */
+    border: 2px solid black; 
     outline: none;
     background-color: #fff;
     transition: background-color 0.3s ease;
     font-size: 1.5rem;
 }
 
-/* Alternate Colors for Squares */
 .piece_btn:nth-child(odd) {
     background-color: #769656;
 }
@@ -47,7 +42,6 @@ body {
     background-color: #eeeed2;
 }
 
-/* Fix alternating colors for rows */
 .main_parent_cont:nth-child(even) .piece_btn:nth-child(odd),
 .main_parent_cont:nth-child(odd) .piece_btn:nth-child(even) {
     background-color: #769656;
@@ -123,16 +117,15 @@ body {
     color: #ffcc00;
 }
 
-/* Reset Button */
 .reset_button {
     position: fixed;
-    bottom: 12%; /* Adjusted to ensure it's above the white dead pieces */
+    bottom: 12%;
     right: 20px;
     padding: 12px 24px;
     font-size: 1.2rem;
     font-weight: bold;
     color: #fff;
-    background-color: #28a745; /* Green background */
+    background-color: #28a745; 
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -140,9 +133,8 @@ body {
     transition: background-color 0.3s ease, transform 0.2s;
 }
 
-/* Hover and Active Effects for Reset Button */
 .reset_button:hover {
-    background-color: #218838; /* Darker green on hover */
+    background-color: #218838; 
     transform: scale(1.05);
 }
 
@@ -155,67 +147,67 @@ body {
     font-size: 1.5rem;
     color: #000000;
     text-transform: uppercase;
-    background-color: transparent; /* Ensures no background color */
-    padding: 0; /* No padding */
+    background-color: transparent;
+    padding: 0; 
     position: fixed;
-    bottom: 17%; /* Adjusted bottom spacing to ensure it stays above reset button */
+    bottom: 17%; 
     left: 50%;
-    transform: translateX(-50%); /* Centered horizontally */
+    transform: translateX(-50%); 
 }
 
 .black_win_text {
     font-size: 1.5rem;
     color: #000000;
     text-transform: uppercase;
-    background-color: transparent; /* Ensures no background color */
-    padding: 0; /* No padding */
+    background-color: transparent; 
+    padding: 0; 
     position: fixed;
-    top: 17%; /* Adjusted top spacing to ensure it stays below reset button */
+    top: 17%; 
     left: 50%;
-    transform: translateX(-50%); /* Centered horizontally */
+    transform: translateX(-50%); 
 }
 
 /* Mobile responsiveness */
 @media screen and (max-width: 768px) {
-    /* Adjust game container size for mobile */
+    
     .game_cont {
-        width: 320px; /* Smaller width for mobile */
-        height: 320px; /* Adjust height accordingly */
+        width: 320px; 
+        height: 320px;
     }
 
-    /* Adjust button size */
+    
     .reset_button {
         padding: 10px 20px;
         font-size: 1rem;
     }
 
-    /* Adjust font size for reset container */
+    
     .reset {
         bottom: 8%;
         right: 10px;
         font-size: 1.2rem;
     }
 
-    /* Adjust win text font size for mobile */
+   
     .white_win_text {
         font-size: 1.2rem;
-        bottom: 20%; /* Ensure it stays well above the reset button */
+        bottom: 20%; 
     }
 
     .black_win_text {
         font-size: 1.2rem;
-        top: 20%; /* Ensure it stays well above the reset button */
+        top: 20%; 
     }
 }
 
 @media screen and (max-width: 480px) {
-    /* Further adjust the game container for smaller mobile devices */
+   
     .game_cont {
         width: 280px;
         height: 280px;
     }
 
-    /* Further adjust button and reset text size */
+    
     .reset_button {
         padding: 8px 16px;
         font-size: 1rem;
@@ -227,25 +219,25 @@ body {
         font-size: 1rem;
     }
 
-    /* Adjust win text for very small screens */
+   
     .white_win_text {
         font-size: 1rem;
-        bottom: 25%; /* Further adjust positioning for very small screens */
+        bottom: 25%; 
     }
 
     .black_win_text {
         font-size: 1rem;
-        top: 25%; /* Further adjust positioning for very small screens */
+        top: 25%;
     }
 }
 
 .transforcontwhite, .transforcontblack{
     position: absolute;
-    background-color: white; /* For visibility */
-    border: 2px solid black; /* Optional styling */
+    background-color: white;
+    border: 2px solid black; 
     display: none;
     flex-direction: column;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8); /* Shadow effect */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8); 
 }
 
 .transformationpcswhite, .transformationpcsblack{

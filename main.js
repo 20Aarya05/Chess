@@ -95,24 +95,20 @@ piece_btn.forEach(element => {
                                 run=false;
                                 tpw.style.display = 'flex';
                                 if (tpw && element) {
-                                    const elementRect = element.getBoundingClientRect(); // Get button's dimensions and position
+                                    const elementRect = element.getBoundingClientRect(); 
                                     
-                                    // Set the size of the container to match the button
                                     tpw.style.width = `${elementRect.width}px`;
-                                    tpw.style.height = `${elementRect.height * tppw.length}px`; // Height for all buttons combined
+                                    tpw.style.height = `${elementRect.height * tppw.length}px`; 
                                 
-                                    // Position the container to overlap the button
                                     tpw.style.position = 'absolute';
-                                    tpw.style.bottom = `${elementRect.top + window.scrollY - 2}px`; // Align the bottom
-                                    tpw.style.left = `${elementRect.left + window.scrollX - 2}px`; // Align the left
+                                    tpw.style.bottom = `${elementRect.top + window.scrollY - 2}px`; 
+                                    tpw.style.left = `${elementRect.left + window.scrollX - 2}px`; 
                                 
-                                    // Set size for each individual button in the container
                                     tppw.forEach((button) => {
                                         button.style.width = `${elementRect.width}px`;
                                         button.style.height = `${elementRect.height}px`;
                                     });
                                 
-                                    // Debugging information
                                     console.log('Button Rect:', elementRect);
                                     console.log('Transformation container and child buttons styled correctly!');
                                 } else {
@@ -134,31 +130,26 @@ piece_btn.forEach(element => {
                                 run=false;
                                 tpb.style.display = 'flex';
                                 if (tpb && element) {
-                                    const elementRect = element.getBoundingClientRect(); // Get button's dimensions and position
+                                    const elementRect = element.getBoundingClientRect(); 
 
-                                    // Set the size of the container to match the button
                                     tpb.style.width = `${elementRect.width}px`;
-                                    tpb.style.height = `${elementRect.height * tppb.length}px`; // Height for all buttons combined
+                                    tpb.style.height = `${elementRect.height * tppb.length}px`; 
 
-                                    // Position the container 3 boxes above the button
                                     tpb.style.position = 'absolute';
-                                    tpb.style.top = `${elementRect.top + window.scrollY - elementRect.height * 3-2}px`; // Move 3 boxes up
-                                    tpb.style.left = `${elementRect.left + window.scrollX - 2}px`; // Align the left
+                                    tpb.style.top = `${elementRect.top + window.scrollY - elementRect.height * 3-2}px`; 
+                                    tpb.style.left = `${elementRect.left + window.scrollX - 2}px`; 
 
-                                    // Set size for each individual button in the container
                                     tppb.forEach((button) => {
                                         button.style.width = `${elementRect.width}px`;
                                         button.style.height = `${elementRect.height}px`;
                                     });
 
-                                    // Debugging information
                                     console.log('Button Rect:', elementRect);
                                     console.log('Transformation container placed 3 boxes above successfully!');
                                 } else {
                                     console.error("Either '.transforcontwhite' or the clicked button is missing!");
                                 }
 
-                                // Handle piece selection and close the menu
                                 tppb.forEach(elementi => {
                                     elementi.addEventListener('click', () => {
                                         console.log(elementi);
