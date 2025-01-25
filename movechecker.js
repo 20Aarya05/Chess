@@ -244,7 +244,6 @@ function checkpawn(chance, eachpieceid) {
 
     const diagonalLeft = document.getElementById(`btn${x + (chance === "white" ? -1 : 1)}${y - 1}`);
     const diagonalRight = document.getElementById(`btn${x + (chance === "white" ? -1 : 1)}${y + 1}`);
-    console.log(diagonalLeft, diagonalRight);
     
     let dli = null;
     if (diagonalLeft && diagonalLeft.innerHTML !== "") {
