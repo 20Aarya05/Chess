@@ -108,17 +108,11 @@ piece_btn.forEach(element => {
                                         button.style.width = `${elementRect.width}px`;
                                         button.style.height = `${elementRect.height}px`;
                                     });
-                                
-                                    console.log('Button Rect:', elementRect);
-                                    console.log('Transformation container and child buttons styled correctly!');
                                 } else {
                                     console.error("Either '.transforcontwhite' or '#btn15' is missing!");
                                 }                                
                                 tppw.forEach(elementi => {
                                     elementi.addEventListener('click', () => {
-                                        console.log(elementi);
-                                        console.log(element);
-                                        
                                         element.innerHTML=elementi.innerHTML;
                                         tpw.style.display = 'none';
                                         run=true;
@@ -143,18 +137,12 @@ piece_btn.forEach(element => {
                                         button.style.width = `${elementRect.width}px`;
                                         button.style.height = `${elementRect.height}px`;
                                     });
-
-                                    console.log('Button Rect:', elementRect);
-                                    console.log('Transformation container placed 3 boxes above successfully!');
                                 } else {
                                     console.error("Either '.transforcontwhite' or the clicked button is missing!");
                                 }
 
                                 tppb.forEach(elementi => {
                                     elementi.addEventListener('click', () => {
-                                        console.log(elementi);
-                                        console.log(element);
-                                        
                                         element.innerHTML = elementi.innerHTML;
                                         tpb.style.display = 'none';
                                         run = true;

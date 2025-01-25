@@ -241,7 +241,6 @@ function checkpawn(chance, eachpieceid) {
             if(verifymove(chance, [`btn${forwardTwo.id.slice(3)}`])) return true;
         }
     }
-
     const diagonalLeft = document.getElementById(`btn${x + (chance === "white" ? -1 : 1)}${y - 1}`);
     const diagonalRight = document.getElementById(`btn${x + (chance === "white" ? -1 : 1)}${y + 1}`);
     
@@ -256,12 +255,10 @@ function checkpawn(chance, eachpieceid) {
     }
 
     if (dli && verifymove(chance, [`btn${diagonalLeft.id.slice(3)}`])) {
-        console.log(diagonalLeft);
         return true;
     }
 
     if (dri && verifymove(chance, [`btn${diagonalRight.id.slice(3)}`])) {
-        console.log(diagonalRight);
         return true;
     }
 

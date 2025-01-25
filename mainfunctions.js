@@ -1,6 +1,5 @@
 import { movechecker } from "./movechecker.js";
 
-//piece idntify
 export function getpiece(element){
     const icon = element.querySelector('i');
     if(icon.classList.contains('fa-chess-rook')){
@@ -252,8 +251,6 @@ export function getkingpath(element, chance) {
             }
         }else{
             if (peice1?.innerHTML === "" && peice2?.innerHTML === "") {
-                console.log(rook1i?.classList);
-
                 if (rook2i && 
                     rook2i.classList.contains("fa-chess-rook") && 
                     !rook2i.classList.contains("firstmovedone") &&
