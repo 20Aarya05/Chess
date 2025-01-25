@@ -4,7 +4,6 @@ const tpp = document.querySelectorAll('.transformationpcs'); // Individual butto
 
 if (tp && element) {
     const elementRect = element.getBoundingClientRect(); // Get button's dimensions and position
-
     // Set the size of the container to match the button
     tp.style.width = `${elementRect.width}px`;
     tp.style.height = `${elementRect.height * tpp.length}px`; // Height for all buttons combined
@@ -12,7 +11,7 @@ if (tp && element) {
     // Position the container to overlap the button
     tp.style.position = 'absolute';
     tp.style.top = `${elementRect.top + window.scrollY - 2}px`; // Align the top
-    tp.style.left = `${elementRect.left + window.scrollX - 22}px`; // Align the left
+    tp.style.left = `${elementRect.left + window.scrollX -2}px`; // Align the left
 
     // Set size for each individual button in the container
     tpp.forEach((button) => {

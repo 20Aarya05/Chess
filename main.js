@@ -1,7 +1,10 @@
 import { getpiece, removehighlight, getrookpath, getknightpath, getbishoppath, getqueenpath, getkingpath, getpawnpath } from "./mainfunctions.js";
 import { blackpcsidentify, whitepcsidentify } from "./loader.js";
 import { checkmatechecker } from "./checkmatechecker.js";
-
+const tpw = document.querySelector('.transforcontwhite');
+const tppw = document.querySelectorAll('.transformationpcswhite');
+const tpb = document.querySelector('.transforcontblack');
+const tppb = document.querySelectorAll('.transformationpcsblack');
 let run=true;
 const piece_btn = document.querySelectorAll('.piece_btn');
 let chance="white";
@@ -85,7 +88,91 @@ piece_btn.forEach(element => {
                         if(elementi.id==lastclickedpiece.id){
                             elementi.innerHTML="";
                         }
-                    })          
+                    })     
+                    if(element.querySelector('i').classList.contains("fa-chess-pawn")){
+                        if(chance == "white"){
+                            if(element.id=='btn11' || element.id=='btn12' || element.id=='btn13' || element.id=='btn14' || element.id=='btn15' || element.id=='btn16' || element.id=='btn17' || element.id=='btn18'){
+                                run=false;
+                                tpw.style.display = 'flex';
+                                if (tpw && element) {
+                                    const elementRect = element.getBoundingClientRect(); // Get button's dimensions and position
+                                    
+                                    // Set the size of the container to match the button
+                                    tpw.style.width = `${elementRect.width}px`;
+                                    tpw.style.height = `${elementRect.height * tppw.length}px`; // Height for all buttons combined
+                                
+                                    // Position the container to overlap the button
+                                    tpw.style.position = 'absolute';
+                                    tpw.style.bottom = `${elementRect.top + window.scrollY - 2}px`; // Align the bottom
+                                    tpw.style.left = `${elementRect.left + window.scrollX - 2}px`; // Align the left
+                                
+                                    // Set size for each individual button in the container
+                                    tppw.forEach((button) => {
+                                        button.style.width = `${elementRect.width}px`;
+                                        button.style.height = `${elementRect.height}px`;
+                                    });
+                                
+                                    // Debugging information
+                                    console.log('Button Rect:', elementRect);
+                                    console.log('Transformation container and child buttons styled correctly!');
+                                } else {
+                                    console.error("Either '.transforcontwhite' or '#btn15' is missing!");
+                                }
+                                tppw.forEach(elementi => {
+                                    elementi.addEventListener('click', () => {
+                                        console.log(elementi);
+                                        console.log(element);
+                                        
+                                        element.innerHTML=elementi.innerHTML;
+                                        tpw.style.display = 'none';
+                                        run=true;
+                                    })
+                                })
+                            }
+                        }else if(chance == "black"){
+                            if(element.id=='btn81' || element.id=='btn82' || element.id=='btn83' || element.id=='btn84' || element.id=='btn85' || element.id=='btn86' || element.id=='btn87' || element.id=='btn88'){
+                                run=false;
+                                tpb.style.display = 'flex';
+                                if (tpb && element) {
+                                    const elementRect = element.getBoundingClientRect(); // Get button's dimensions and position
+
+                                    // Set the size of the container to match the button
+                                    tpb.style.width = `${elementRect.width}px`;
+                                    tpb.style.height = `${elementRect.height * tppb.length}px`; // Height for all buttons combined
+
+                                    // Position the container 3 boxes above the button
+                                    tpb.style.position = 'absolute';
+                                    tpb.style.top = `${elementRect.top + window.scrollY - elementRect.height * 3-2}px`; // Move 3 boxes up
+                                    tpb.style.left = `${elementRect.left + window.scrollX - 2}px`; // Align the left
+
+                                    // Set size for each individual button in the container
+                                    tppb.forEach((button) => {
+                                        button.style.width = `${elementRect.width}px`;
+                                        button.style.height = `${elementRect.height}px`;
+                                    });
+
+                                    // Debugging information
+                                    console.log('Button Rect:', elementRect);
+                                    console.log('Transformation container placed 3 boxes above successfully!');
+                                } else {
+                                    console.error("Either '.transforcontwhite' or the clicked button is missing!");
+                                }
+
+                                // Handle piece selection and close the menu
+                                tppb.forEach(elementi => {
+                                    elementi.addEventListener('click', () => {
+                                        console.log(elementi);
+                                        console.log(element);
+                                        
+                                        element.innerHTML = elementi.innerHTML;
+                                        tpb.style.display = 'none';
+                                        run = true;
+                                    });
+                                });
+
+                            }
+                        }
+                    }   
                 }else if(element.style.backgroundColor==="red"){
                     if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-pawn")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
                         lastclickedpiece.querySelector('i').classList.add("firstmovedone");
