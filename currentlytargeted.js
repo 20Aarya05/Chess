@@ -8,9 +8,9 @@ export function currentlytargeted(chance) {
             const icont = piece.querySelector(`i`);
             if (icont && icont.classList.contains(tocheck_class)) {
                 if (checkPiece(icont, chance, piece.id)) {
-                    return true;
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
 }
