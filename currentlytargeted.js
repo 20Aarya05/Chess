@@ -1,16 +1,30 @@
 import { movechecker, checkPiece } from "./movechecker.js";
-let tocheck_class;
 export function currentlytargeted(chance) {
-    tocheck_class = chance === "white" ? "fa-solid" : "fa-regular";
-
-    const piece_btn = document.querySelectorAll(`.piece_btn`);
-        for (const piece of piece_btn) {
-            const icont = piece.querySelector(`i`);
-            if (icont && icont.classList.contains(tocheck_class)) {
-                if (checkPiece(icont, chance, piece.id)) {
-                    return false;
-                }
+    let pcs;
+    if (chance==="white"){
+        chance="black";
+    }else{
+        chance="white";
+    }
+    if (chance === "white") {
+        const piece_btn = document.querySelectorAll('.piece_btn');
+        piece_btn.forEach(element => {
+            const elei=element.querySelector('i');
+            if (elei&&elei.classList.contains('fa-regular')&&elei.classList.contains('fa-chess-king')) {
+                pcs = element;
             }
-        }
-        return true;
+        })
+    }else if (chance === "black") {
+        const piece_btn = document.querySelectorAll('.piece_btn');
+        piece_btn.forEach(element => {
+            const elei=element.querySelector('i');
+            if (elei&&elei.classList.contains('fa-solid')&&elei.classList.contains('fa-chess-king')) {
+                pcs = element;
+            }
+        })
+    }
+    if(movechecker(chance, pcs.id, pcs.id)===false){
+        return false;
+    }
+    return true;
 }
