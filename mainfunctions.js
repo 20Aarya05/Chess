@@ -321,6 +321,40 @@ export function getpawnpath(element, chance) {
                         piece.style.backgroundColor = "red";
                     }
                 }
+            }else{
+                const leftbtn=document.getElementById(`btn${x}${y - 1}`);
+                const rightbtn = document.getElementById(`btn${x}${y + 1}`);
+                let leftbtni;
+                if(leftbtn){
+                    leftbtni=leftbtn.querySelector('i');
+                }
+                let rightbtni;
+                if(rightbtn){
+                    rightbtni=rightbtn.querySelector('i');
+                }
+                const diagonalLeftele = document.getElementById(diagonalLeft);
+                const diagonalRightele = document.getElementById(diagonalRight);
+                if(chance==="white"){
+                    if(leftbtni && leftbtni.classList.contains("fa-solid") && leftbtni.classList.contains("currmov2") ){
+                        if(movechecker(chance, element.id, diagonalLeft) == false){
+                            diagonalLeftele.style.backgroundColor = "red";
+                        }
+                    }else if(rightbtni && rightbtni.classList.contains("fa-solid") && rightbtni.classList.contains("currmov2") ){
+                        if(movechecker(chance, element.id, diagonalRight) == false){
+                            diagonalRightele.style.backgroundColor = "red";
+                        }
+                    }
+                }else if(chance==="black"){
+                    if(leftbtni && leftbtni.classList.contains("fa-regular") && leftbtni.classList.contains("currmov2") ){
+                        if(movechecker(chance, element.id, diagonalLeft) == false){
+                            diagonalLeftele.style.backgroundColor = "red";
+                        }
+                    }else if(rightbtni && rightbtni.classList.contains("fa-regular") && rightbtni.classList.contains("currmov2") ){
+                        if(movechecker(chance, element.id, diagonalRight) == false){
+                            diagonalRightele.style.backgroundColor = "red";
+                        }
+                    }
+                }
             }
         }
     });
