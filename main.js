@@ -58,12 +58,11 @@ piece_btn.forEach(element => {
     });
 });
 
-const ptp = document.querySelector(".transforcontwhite");
-
 piece_btn.forEach(element => {
     element.addEventListener('click', () => {
         if (run) {
             if(element.classList.contains("to-move") || element.classList.contains("kill-move") || element.classList.contains("castle-move")){
+
                 if(element.classList.contains("to-move")){
                     if(chance==="white"){
                         const pcb=document.querySelectorAll('.piece_btn');
