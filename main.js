@@ -58,6 +58,8 @@ piece_btn.forEach(element => {
     });
 });
 
+const ptp = document.querySelector(".transforcontwhite");
+
 piece_btn.forEach(element => {
     element.addEventListener('click', () => {
         if (run) {
