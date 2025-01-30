@@ -203,6 +203,10 @@ body {
         font-size: 1.2rem;
         top: 15%; 
     }
+
+    .piece_btn{
+        font-size: 95%;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -233,6 +237,10 @@ body {
     .black_win_text {
         font-size: 1rem;
         top: 15%;
+    }
+    
+    .piece_btn{
+        font-size: 95%;
     }
 }
 
