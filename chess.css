@@ -172,78 +172,6 @@ body {
 }
 
 
-/* Mobile responsiveness */
-@media screen and (max-width: 768px) {
-    
-    .game_cont {
-        width: 320px; 
-        height: 320px;
-    }
-
-    
-    .reset_button {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-
-    
-    .reset {
-        bottom: 8%;
-        right: 10px;
-        font-size: 1.2rem;
-    }
-
-   
-    .white_win_text {
-        font-size: 1.2rem;
-        bottom: 15%; 
-    }
-
-    .black_win_text {
-        font-size: 1.2rem;
-        top: 15%; 
-    }
-
-    .piece_btn{
-        font-size: 95%;
-    }
-}
-
-@media screen and (max-width: 480px) {
-   
-    .game_cont {
-        width: 280px;
-        height: 280px;
-    }
-
-    
-    .reset_button {
-        padding: 8px 16px;
-        font-size: 1rem;
-    }
-
-    .reset {
-        bottom: 5%;
-        right: 5px;
-        font-size: 1rem;
-    }
-
-   
-    .white_win_text {
-        font-size: 1rem;
-        bottom: 15%; 
-    }
-
-    .black_win_text {
-        font-size: 1rem;
-        top: 15%;
-    }
-    
-    .piece_btn{
-        font-size: 95%;
-    }
-}
-
 .transforcontwhite, .transforcontblack{
     position: absolute;
     background-color: white;
@@ -335,4 +263,76 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
     font-size: medium;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    
+    .game_cont {
+        width: 320px; 
+        height: 320px;
+    }
+
+    
+    .reset_button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    
+    .reset {
+        bottom: 8%;
+        right: 10px;
+        font-size: 1.2rem;
+    }
+
+   
+    .white_win_text {
+        font-size: 1.2rem;
+        bottom: 15%; 
+    }
+
+    .black_win_text {
+        font-size: 1.2rem;
+        top: 15%; 
+    }
+
+    .piece_btn{
+        font-size: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+   
+    .game_cont {
+        width: 280px;
+        height: 280px;
+    }
+
+    
+    .reset_button {
+        padding: 8px 16px;
+        font-size: 1rem;
+    }
+
+    .reset {
+        bottom: 5%;
+        right: 5px;
+        font-size: 1rem;
+    }
+
+   
+    .white_win_text {
+        font-size: 1rem;
+        bottom: 15%; 
+    }
+
+    .black_win_text {
+        font-size: 1rem;
+        top: 15%;
+    }
+    
+    .piece_btn{
+        font-size: 100%;
+    }
 }
