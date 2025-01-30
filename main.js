@@ -6,6 +6,7 @@ const tpw = document.querySelector('.transforcontwhite');
 const tppw = document.querySelectorAll('.transformationpcswhite');
 const tpb = document.querySelector('.transforcontblack');
 const tppb = document.querySelectorAll('.transformationpcsblack');
+const coloursetmove = '#FFE6C9'
 let run=true;
 const piece_btn = document.querySelectorAll('.piece_btn');
 let chance="white";
