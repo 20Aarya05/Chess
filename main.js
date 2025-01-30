@@ -21,7 +21,7 @@ function updateTurn() {
     classlistcont = chance === "white" ? whitepcsidentify : blackpcsidentify;
     lastclickedpiece = null;
 }
-
+"yellow"
 piece_btn.forEach(element => {
     element.addEventListener('click', () => {
         if(run){
@@ -58,12 +58,12 @@ piece_btn.forEach(element => {
     });
 });
 
-
 piece_btn.forEach(element => {
     element.addEventListener('click', () => {
         if (run) {
-            if(element.style.backgroundColor!==""){
-                if(element.style.backgroundColor==="yellow"){
+            if(element.classList.contains("to-move") || element.classList.contains("kill-move") || element.classList.contains("castle-move")){
+                console.log(element);
+                if(element.classList.contains("to-move")){
                     if(chance==="white"){
                         const pcb=document.querySelectorAll('.piece_btn');
                         pcb.forEach(elementp => {
@@ -172,7 +172,7 @@ piece_btn.forEach(element => {
                             }
                         }
                     }  
-                }else if(element.style.backgroundColor==="red"){
+                }else if(element.classList.contains("kill-move")){
                     if(element.querySelector('i')){
                         if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-pawn")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
                             lastclickedpiece.querySelector('i').classList.add("firstmovedone");
@@ -287,7 +287,7 @@ piece_btn.forEach(element => {
                             }
                         })
                     }
-                }else if(element.style.backgroundColor==="skyblue"){
+                }else if(element.classList.contains("castle-move")){
                     if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-pawn")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){
                         lastclickedpiece.querySelector('i').classList.add("firstmovedone");
                     }else if(lastclickedpiece.querySelector('i').classList.contains("fa-chess-rook")&& !(lastclickedpiece.querySelector('i').classList.contains("firstmovedone"))){

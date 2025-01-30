@@ -229,6 +229,7 @@ body {
     font-size: 3vw;
     background-size: cover;
     transition: background-color 0.2s ease-in-out;
+    position: relative;
 }
 
 .piece_btn:nth-child(odd) {
@@ -264,6 +265,95 @@ body {
     margin-bottom: 10px;
     font-size: medium;
 }
+
+.to-move::after, .castle-move::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: rgba(75, 75, 75, 0.6); /* Light grey-black */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.kill-move::after {
+    content: "";
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    border: 4px solid rgba(75, 75, 75, 0.6);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10; /* Ensure it appears above the button */
+}
+
+.board-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Game Board */
+.game_cont {
+    position: relative;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background-color: #B58863;
+    overflow: hidden;
+    padding: 10px;
+}
+
+/* Chessboard Ranks (1-8) */
+.ranks {
+    position: absolute;
+    left: -15px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.ranks div {
+    height: 12.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Chessboard Files (A-H) */
+.files {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.files div {
+    width: 12.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /* Mobile responsiveness */
 @media screen and (max-width: 768px) {

@@ -55,3 +55,4 @@ pieceButtons.forEach(element => {
         element.innerHTML=whitepcs[5];
     } 
 });
+

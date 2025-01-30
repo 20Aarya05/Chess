@@ -16,13 +16,16 @@ export function getpiece(element){
         return "pawn";
     }
 }
-
-
+"skyblue"
 export function removehighlight(){
     const piece_btn = document.querySelectorAll('.piece_btn');
     piece_btn.forEach((piece) => {
-        if (piece.style.backgroundColor!="") {
-            piece.style.backgroundColor = "";
+        if (piece.classList.contains('to-move')) {
+            piece.classList.remove('to-move');
+        }else if(piece.classList.contains('kill-move')) {
+            piece.classList.remove('kill-move');
+        }else if(piece.classList.contains('castle-move')) {
+            piece.classList.remove('castle-move');
         }
     });
 }
@@ -236,7 +239,7 @@ export function getkingpath(element, chance) {
                     !rook2i.classList.contains("firstmovedone") &&
                     !movechecker(chance, element.id, `btn87`))
                 {
-                    document.getElementById("btn87").style.backgroundColor = "skyblue";   
+                    document.getElementById("btn87").classList.add("castle-move");   
                 }
             }
 
@@ -246,7 +249,7 @@ export function getkingpath(element, chance) {
                     !rook1i.classList.contains("firstmovedone") &&
                     !movechecker(chance, element.id, `btn83`))
                 {
-                    document.getElementById("btn83").style.backgroundColor = "skyblue";   
+                    document.getElementById("btn83").classList.add("castle-move");   
                 }
             }
         }else{
@@ -256,7 +259,7 @@ export function getkingpath(element, chance) {
                     !rook2i.classList.contains("firstmovedone") &&
                     !movechecker(chance, element.id, `btn17`)) 
                 {
-                    document.getElementById("btn17").style.backgroundColor = "skyblue";                  }
+                    document.getElementById("btn17").classList.add("castle-move");                  }
             }
 
             if (peice3?.innerHTML === "" && peice4?.innerHTML === "" && peice5?.innerHTML === "") {
@@ -265,7 +268,7 @@ export function getkingpath(element, chance) {
                     !rook1i.classList.contains("firstmovedone") &&
                     !movechecker(chance, element.id, `btn13`))
                 {
-                    document.getElementById("btn13").style.backgroundColor = "skyblue";                  }
+                    document.getElementById("btn13").classList.add("castle-move");                  }
             }
         }
     }
@@ -314,11 +317,11 @@ export function getpawnpath(element, chance) {
             if (icon) {
                 if (chance === "white" && icon.classList.contains("fa-solid")) {
                     if(movechecker(chance, element.id, square) == false){
-                        piece.style.backgroundColor = "red";
+                        piece.classList.add("kill-move");
                     }
                 } else if (chance === "black" && icon.classList.contains("fa-regular")) {
                     if(movechecker(chance, element.id, square) == false){
-                        piece.style.backgroundColor = "red";
+                        piece.classList.add("kill-move");
                     }
                 }
             }else{
@@ -337,21 +340,21 @@ export function getpawnpath(element, chance) {
                 if(chance==="white"){
                     if(leftbtni && leftbtni.classList.contains("fa-solid") && leftbtni.classList.contains("currmov2") ){
                         if(movechecker(chance, element.id, diagonalLeft) == false){
-                            diagonalLeftele.style.backgroundColor = "red";
+                            diagonalLeftele.classList.add("kill-move");
                         }
                     }else if(rightbtni && rightbtni.classList.contains("fa-solid") && rightbtni.classList.contains("currmov2") ){
                         if(movechecker(chance, element.id, diagonalRight) == false){
-                            diagonalRightele.style.backgroundColor = "red";
+                            diagonalRightele.classList.add("kill-move");
                         }
                     }
                 }else if(chance==="black"){
                     if(leftbtni && leftbtni.classList.contains("fa-regular") && leftbtni.classList.contains("currmov2") ){
                         if(movechecker(chance, element.id, diagonalLeft) == false){
-                            diagonalLeftele.style.backgroundColor = "red";
+                            diagonalLeftele.classList.add("kill-move");
                         }
                     }else if(rightbtni && rightbtni.classList.contains("fa-regular") && rightbtni.classList.contains("currmov2") ){
                         if(movechecker(chance, element.id, diagonalRight) == false){
-                            diagonalRightele.style.backgroundColor = "red";
+                            diagonalRightele.classList.add("kill-move");
                         }
                     }
                 }
@@ -371,17 +374,17 @@ function highlightPath(chance, listboxes, element) {
             if (icon) {
                 if (chance === "white" && icon.classList.contains("fa-solid")) {
                     if (movechecker(chance, element, listboxes[i]) == false) {
-                        piece.style.backgroundColor = "red";
+                        piece.classList.add("kill-move");
                     }  
                 } else if (chance === "black" && icon.classList.contains("fa-regular")) {
                     if (movechecker(chance, element, listboxes[i]) == false) {
-                        piece.style.backgroundColor = "red";
+                        piece.classList.add("kill-move");
                     }  
                 }
                 break;
             } else {
                 if (movechecker(chance, element, listboxes[i]) == false) {
-                    piece.style.backgroundColor = "yellow";
+                    piece.classList.add("to-move"); // Add class for styling
                 }
                 
             }

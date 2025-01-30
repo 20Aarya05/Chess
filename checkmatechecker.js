@@ -50,7 +50,7 @@ export function checkmatechecker(chance1) {
             }
 
             piece_btn.forEach(btn => {
-                if (btn.style.backgroundColor === "yellow" || btn.style.backgroundColor === "red") {
+                if (btn.classList.contains("to-move") || btn.style.backgroundColor === "red") {
                     moveFound = true;
                 }
             });
