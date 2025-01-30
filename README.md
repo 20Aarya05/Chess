@@ -18,6 +18,13 @@ Aarya's Chess is a fully functional **1v1 offline multiplayer chess game** built
 --🐘 Castling
 --⚔️ En passant
 
+## 🖥️ Languages & Technologies Used
+
+- **HTML** – Structure of the chessboard and UI elements.
+- **CSS** – Styling and animations for an interactive experience.
+- **JavaScript (ES6+)** – Handles game logic, move validation, and interactions.
+- **Font Awesome** – Used for chess piece icons.
+
 ## 📂 Project Structure
 
 📦 Aarya's Chess 
