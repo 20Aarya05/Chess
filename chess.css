@@ -117,7 +117,7 @@ body {
     color: #ffcc00;
 }
 
-.reset_button {
+.reset_button, .submit_button {
     position: fixed;
     bottom: 12%;
     right: 20px;
@@ -133,21 +133,6 @@ body {
     transition: background-color 0.3s ease, transform 0.2s;
 }
 
-.submit_button{
-position: fixed;
-    bottom: 12%;
-    left: 20px;
-    padding: 12px 24px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    background-color: #28a745; 
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s ease, transform 0.2s;
-}
 
 
 .reset_button:hover {
