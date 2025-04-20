@@ -134,6 +134,7 @@ body {
 }
 
 .submit_button{
+position: fixed;
 left: 20px;
 }
 
