@@ -138,12 +138,12 @@ position: fixed;
 left: 20px;
 }
 
-.reset_button:hover, .submit_button:hover {
+.reset_button:hover {
     background-color: #218838; 
     transform: scale(1.05);
 }
 
-.reset_button:active, .submit_button:active{
+.reset_button:active{
     transform: scale(0.95);
 }
 
