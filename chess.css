@@ -118,7 +118,7 @@ body {
 }
 
 .reset_button, .submit_button {
-    position: fixed;
+    position: absolute;
     bottom: 12%;
     right: 20px;
     padding: 12px 24px;
