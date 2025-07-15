@@ -59,10 +59,6 @@ Aarya's Chess is a fully functional **1v1 offline multiplayer chess game** built
 🌐 Online Multiplayer (WebSockets)
 
 
-📜 License
-
-This project is open-source under MIT License.
-
 
 ---
 
